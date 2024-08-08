@@ -94,7 +94,7 @@ Response Format:
 ```
 
 **Scheme:**
-![start](../GitHub_Search_repo/src/main/resources/png/start.jpg "start")
+![start](GitHub_Search_repo/src/main/resources/png/start.jpg "start")
 
 ## Testing
 **Example Unit Tests**
