@@ -50,8 +50,51 @@ Ensure you have Maven installed, then run:
 
 GET http://localhost:8080/api/github/users/testuser/repos
 
+**Example:**
+
+**To fetch non-forked repositories for a user:**
+
+GET http://localhost:8080/api/github/users/testuser/repos
+
+- Headers: Accept: application/json
+- This header specifies the media types that the client wants to receive from the server. By including Accept: application/json, the client informs the server that it expects a response in JSON format.
+- Description: Retrieves all repositories for the specified GitHub user that are not forks.
+
+Response Format:
+```[
+    {
+        "name": "repo_name_1",
+        "owner": {
+            "login": "owner_name"
+        },
+        "branches": [
+            {
+                "name": "branch_name_1",
+                "commit": {
+                    "sha": "commit_sha_1"
+                }
+            }
+        ]
+    },
+    {
+        "name": "repo_name_2",
+        "owner": {
+            "login": "owner_name"
+        },
+        "branches": [
+            {
+                "name": "branch_name_2",
+                "commit": {
+                    "sha": "commit_sha_2"
+                }
+            }
+        ]
+    }
+]
+```
+
 **Scheme:**
-![start](GitHub_Search_repo/src/main/resources/png/start.jpg "start")
+![start](../GitHub_Search_repo/src/main/resources/png/start.jpg "start")
 
 ## Testing
 **Example Unit Tests**
@@ -65,6 +108,38 @@ GET http://localhost:8080/api/github/users/testuser/repos
 mvn test
 ```
 
+## Error Handling
+Handle Non-Existing User
+Endpoint: GET /repositories/{username}
+
+Description: If the specified GitHub user does not exist, a 404 response is returned.
+
+Response Format:
+
+Handle Rate limit exceeded
+Description: when the user exceeded the number of server requests, a 403 response is returned.
+```
+{
+    "status": 403,
+    "message": "Rate limit exceeded"
+}
+```
+
+```
+{
+    "status": 404,
+    "message": "This user does not exist"
+}
+```
+
+Handle Http Media Type Not Acceptable (e.g. application/xml) 
+Description: If client specified not acceptable media type format, a 406 response is returned.
+```
+{
+    "status": 406,
+    "message": "Not acceptable format"
+}
+```
 ## Contributors
 - GitHub - https://github.com/Hlib13
 - E-mail: - hlib.chebotarov@gmail.com
