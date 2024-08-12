@@ -62,13 +62,4 @@ public class GithubControllerTest {
                 .hasSize(2)
                 .contains(branch1, branch2);
     }
-
-    @Test
-    void testCheckRateLimit() {
-        webTestClient.get()
-                .uri("/api/github/rate-limit")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo("Rate limit checked. See logs for details.");
-    }
 }

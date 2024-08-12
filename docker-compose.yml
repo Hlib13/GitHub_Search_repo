@@ -11,7 +11,15 @@ services:
     volumes:
       - redis-data:/data
     environment:
-      REDIS_PASSWORD: 13289812
+      REDIS_PASSWORD: brazzass
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - redis-network
 
 networks:
   redis-network:
