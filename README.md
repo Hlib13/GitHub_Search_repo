@@ -6,7 +6,6 @@ The GitHub Repository Search Service is a web application that allows users to s
 ## Features
 - **Search Repositories**: Fetch and display non-fork repositories for a given GitHub username.
 - **Branch Information**: Retrieve branch details for selected repositories.
-- **Rate Limiting and Caching**: Implements rate limiting, caching with Redis, and fallbacks using Resilience4j.
 - **Error Handling**: Custom error handling for 404 and other HTTP errors.
 
 ## Technologies
@@ -18,6 +17,7 @@ The GitHub Repository Search Service is a web application that allows users to s
 - **Resilience4j**
 - **Mockito**
 - **JUnit 5**
+- **Redis**
 
 ## Installation
 
@@ -32,7 +32,11 @@ The GitHub Repository Search Service is a web application that allows users to s
 Ensure you have Maven installed, then run:
    ```bash
    mvn clean install
-4. **Run the Application**
+4. **Run Docker-compose**
+   ```bash
+    docker-compose up --build
+
+5. **Run the Application**
    ```bash
    mvn spring-boot:run
 
@@ -42,13 +46,6 @@ Ensure you have Maven installed, then run:
 - **Search Repositories:** GET /api/github/users/{username}/repos
 - **Get Branches:** GET /api/github/users/{username}/repos/{repoName}/branches
 - **Check Rate Limit:** GET /api/github/rate-limit
-
-
-  **Example:**
-
-**To fetch non-forked repositories for a user:**
-
-GET http://localhost:8080/api/github/users/testuser/repos
 
 **Example:**
 
