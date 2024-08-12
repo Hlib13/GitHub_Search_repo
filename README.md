@@ -102,6 +102,7 @@ Response Format:
 
 1. **To run the tests, use the following command:**
 ```bash
+docker-compose up --build
 mvn test
 ```
 
