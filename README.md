@@ -27,14 +27,13 @@ The GitHub Repository Search Service is a web application that allows users to s
 2. **Navigate to the Project Directory**
    ```bash
    cd github-search-repo
-3. **Build the Project**
+3. **Run Docker-compose**
+   ```bash
+    docker-compose up --build
+4. **Build the Project**
 Ensure you have Maven installed, then run:
    ```bash
    mvn clean install
-4. **Run Docker-compose**
-   ```bash
-    docker-compose up --build
-
 5. **Run the Application**
    ```bash
    mvn spring-boot:run
@@ -44,7 +43,6 @@ Ensure you have Maven installed, then run:
 
 - **Search Repositories:** GET /api/github/users/{username}/repos
 - **Get Branches:** GET /api/github/users/{username}/repos/{repoName}/branches
-- **Check Rate Limit:** GET /api/github/rate-limit
 
 **Example:**
 
