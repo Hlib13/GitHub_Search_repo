@@ -27,7 +27,7 @@ public class GithubController {
             @ApiResponse(responseCode = "404", description = "User not found"),
             @ApiResponse(responseCode = "403", description = "Rate limit exceeded or access forbidden")
     })
-    @GetMapping("/users/{username}/repos")
+    @GetMapping(value = "/users/{username}/repos", produces = MediaType.APPLICATION_JSON_VALUE)
     public Flux<RepositoryInfo> getNonForkRepositories(@PathVariable String username) {
         return githubService.getNonForkRepositories(username);
     }
