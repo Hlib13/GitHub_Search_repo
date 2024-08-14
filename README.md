@@ -10,14 +10,13 @@ The GitHub Repository Search Service is a web application that allows users to s
 
 ## Technologies
 
-- **Java 17**
+- **Java 21**
 - **Spring Boot 3**
 - **WebFlux**
 - **Redis**
 - **Resilience4j**
 - **Mockito**
 - **JUnit 5**
-- **Redis**
 
 ## Installation
 
