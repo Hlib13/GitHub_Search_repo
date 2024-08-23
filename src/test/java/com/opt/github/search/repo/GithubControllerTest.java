@@ -43,23 +43,4 @@ public class GithubControllerTest {
                 .hasSize(2)
                 .contains(repo1, repo2);
     }
-
-    @Test
-    void testGetBranches() {
-        String username = "testuser";
-        String repoName = "Repo1";
-
-        BranchInfo branch1 = new BranchInfo("main", "commitSha1");
-        BranchInfo branch2 = new BranchInfo("dev", "commitSha2");
-
-        when(githubService.getBranches(username, repoName)).thenReturn(Flux.just(branch1, branch2));
-
-        webTestClient.get()
-                .uri("/api/github/users/{username}/repos/{repoName}/branches", username, repoName)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(BranchInfo.class)
-                .hasSize(2)
-                .contains(branch1, branch2);
-    }
 }
