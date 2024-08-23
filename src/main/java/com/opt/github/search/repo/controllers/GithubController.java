@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,16 +31,5 @@ public class GithubController {
     @GetMapping(value = "/users/{username}/repos", produces = MediaType.APPLICATION_JSON_VALUE)
     public Flux<RepositoryInfo> getNonForkRepositories(@PathVariable String username) {
         return githubService.getNonForkRepositories(username);
-    }
-
-    @Operation(summary = "Get Branches", description = "Retrieve all branches for a specific repository of a GitHub user.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved branches"),
-            @ApiResponse(responseCode = "404", description = "Repository or user not found"),
-            @ApiResponse(responseCode = "403", description = "Rate limit exceeded or access forbidden")
-    })
-    @GetMapping("/users/{username}/repos/{repoName}/branches")
-    public Flux<BranchInfo> getBranches(@PathVariable String username, @PathVariable String repoName) {
-        return githubService.getBranches(username, repoName);
     }
 }
