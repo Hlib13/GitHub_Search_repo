@@ -42,8 +42,6 @@ Ensure you have Maven installed, then run:
  **API Endpoints:**
 
 - **Search Repositories:** GET /api/github/users/{username}/repos
-- **Get Branches:** GET /api/github/users/{username}/repos/{repoName}/branches
-
 **Example:**
 
 **To fetch non-forked repositories for a user:**
