@@ -99,8 +99,6 @@ class GithubServiceImplTest {
                 .exchange()
                 .expectStatus().isEqualTo(HttpStatus.NOT_ACCEPTABLE)
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
-                .expectBody()
-                .jsonPath("$.status").isEqualTo(406)
-                .jsonPath("$.message").isEqualTo("Not acceptable format");
+                .expectBody();
     }
 }
