@@ -11,7 +11,7 @@ services:
     volumes:
       - redis-data:/data
     environment:
-      REDIS_PASSWORD: 13289812
+      REDIS_PASSWORD: brazzass
 
 networks:
   redis-network:
